@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { SKILLS, PROJECTS } from './constants';
 import { Project, Message } from './types';
@@ -197,7 +198,7 @@ const Hero: React.FC = () => (
           <div className="relative w-80 h-[480px] md:w-[450px] md:h-[620px] rounded-[4rem] overflow-hidden glass border-4 border-white/10 shadow-2xl group-hover:border-orange-500/30 transition-all duration-1000">
             <img src="https://raw.githubusercontent.com/shamim-ahmad/portfolio-assets/main/hero.jpg" alt="Shamim Ahmad" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" onError={(e) => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop"; }} />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-            <div className="absolute bottom-12 left-12 text-left"><p className="text-[11px] font-black text-orange-400 uppercase tracking-[0.5em] mb-2">Located in</p><p className="text-3xl font-black uppercase tracking-widest text-white desktop-only leading-none">Dhaka, BD</p></div>
+            <div className="absolute bottom-12 left-12 text-left"><p className="text-[11px] font-black text-orange-400 uppercase tracking-[0.5em] mb-2">Located in</p><p className="text-3xl font-black uppercase tracking-widest text-white leading-none">Dhaka, BD</p></div>
           </div>
         </div>
       </div>
@@ -412,8 +413,6 @@ const ContactSection: React.FC = () => {
     
     try {
       // AJAX Submission to Formspree using JSON
-      // NOTE: You must replace 'shamimahmadahnaf@gmail.com' with your actual Formspree Form ID (a random string)
-      // for the most reliable results. You can get it from the Formspree dashboard.
       const response = await fetch("https://formspree.io/f/shamimahmadahnaf@gmail.com", {
         method: "POST",
         body: JSON.stringify(formData),
@@ -430,7 +429,6 @@ const ContactSection: React.FC = () => {
         setFormData({ name: '', email: '', message: '' });
         setTimeout(() => setSubmitted(false), 5000);
       } else {
-        // More descriptive error handling
         const errorMsg = result.error || "Transmission failed. If this is a new form, check your email to confirm activation with Formspree.";
         alert(errorMsg);
       }
