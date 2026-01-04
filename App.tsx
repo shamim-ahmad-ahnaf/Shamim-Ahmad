@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { SKILLS, PROJECTS } from './constants';
 import { Project, Message } from './types';
@@ -196,9 +195,20 @@ const Hero: React.FC = () => (
         <div className="relative group">
           <div className="absolute -inset-6 bg-orange-600/20 blur-3xl rounded-full group-hover:bg-orange-600/40 transition-all duration-700"></div>
           <div className="relative w-80 h-[480px] md:w-[450px] md:h-[620px] rounded-[4rem] overflow-hidden glass border-4 border-white/10 shadow-2xl group-hover:border-orange-500/30 transition-all duration-1000">
-            <img src="https://raw.githubusercontent.com/shamim-ahmad/portfolio-assets/main/hero.jpg" alt="Shamim Ahmad" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" onError={(e) => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop"; }} />
+            {/* User Photo: Renamed to profile.jpg */}
+            <img 
+              src="/profile.jpg" 
+              alt="Shamim Ahmad" 
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" 
+              onError={(e) => { 
+                (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop"; 
+              }} 
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-            <div className="absolute bottom-12 left-12 text-left"><p className="text-[11px] font-black text-orange-400 uppercase tracking-[0.5em] mb-2">Located in</p><p className="text-3xl font-black uppercase tracking-widest text-white leading-none">Dhaka, BD</p></div>
+            <div className="absolute bottom-12 left-12 text-left">
+              <p className="text-[11px] font-black text-orange-400 uppercase tracking-[0.5em] mb-2">Located in</p>
+              <p className="text-3xl font-black uppercase tracking-widest text-white leading-none">Dhaka, BD</p>
+            </div>
           </div>
         </div>
       </div>
@@ -247,7 +257,16 @@ const AboutSection: React.FC = () => {
         <div className={`lg:col-span-5 relative transition-all duration-1000 delay-300 transform ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}>
           <div className="relative group">
             <div className="absolute -inset-4 bg-orange-600/10 blur-2xl rounded-[4rem] group-hover:bg-orange-600/20 transition-all"></div>
-            <div className="relative glass p-4 rounded-[4rem] border-white/10 shadow-2xl transition-transform duration-700 hover:rotate-3"><img src="https://images.unsplash.com/photo-1550439062-609e1531270e?q=80&w=1000&auto=format&fit=crop" alt="Philosophy" className="w-full aspect-[4/5] object-cover rounded-[3.2rem]" /><div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent rounded-[3.2rem]"></div></div>
+            <div className="relative glass p-4 rounded-[4rem] border-white/10 shadow-2xl transition-transform duration-700 hover:rotate-3">
+              {/* Secondary photo or stylized profile pic */}
+              <img 
+                src="/profile.jpg" 
+                alt="Philosophy" 
+                className="w-full aspect-[4/5] object-cover rounded-[3.2rem]" 
+                onError={(e) => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1550439062-609e1531270e?q=80&w=1000&auto=format&fit=crop"; }} 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent rounded-[3.2rem]"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -412,7 +431,6 @@ const ContactSection: React.FC = () => {
     setIsSending(true);
     
     try {
-      // AJAX Submission to Formspree using JSON
       const response = await fetch("https://formspree.io/f/shamimahmadahnaf@gmail.com", {
         method: "POST",
         body: JSON.stringify(formData),
