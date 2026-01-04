@@ -1,0 +1,8 @@
+{
+  "name": "SHAMIM AHMAD",
+  "description": "A premium, AI-powered web developer portfolio featuring a dynamic project showcase, skill visualization, and an interactive Gemini-powered AI assistant.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
